@@ -1,2 +1,119 @@
 project:
   type: website
+  output-dir: _site
+
+website:
+  title: ""
+
+  navbar:
+    pinned: true
+    search: true
+    left:
+      - text: "Start"
+        href: index.qmd
+      
+      - text: "1.Einführung"
+        menu:
+          - text: "1.1 Was ist prozedurale Generierung?"
+            href: index.qmd#einfuehrung1
+          - text: "1.2 Unterschied zu klassischen Texturen"
+            href: index.qmd#einfuehrung2
+          - text: "1.3 Verwandte Methoden im Vergleich"
+            href: index.qmd#einfuehrung3
+
+      - text: "2. Hintergrund"
+        menu:
+          - text: "2.1 Vom Seed zum gerenderten Terrain"
+            href: index.qmd#hintergrund1
+          - text: "2.2 Parallelisierung durch Compute Shader"
+            href: index.qmd#hintergrund2
+      
+      - text: "3. Interaktive prozedurale Terrain-Generierung"
+        menu:
+          - text: "3. Interaktive prozedurale Terrain-Generierung"
+            href: index.qmd#prozedural
+          - text: "3.1 Relevante Noise-Verfahren für Terrain-Generierung"
+            href: index.qmd#noise
+          - text: "3.2 Terrain-Generierung aus Noise Maps"
+            href: index.qmd#terrain
+          - text: "3.3 Terrain Texturierung mit Texture Maps und Texture Algorithmen"
+            href: index.qmd#texture
+          - text: "3.4 Rolle des Fragment-Shaders in der Terrain-Texturierung"
+            href: index.qmd#fragment
+          - text: "3.5 Visuelle Darstellung der Terrain Texturierung"
+            href: index.qmd#visuell
+
+      - text: "4. Fazit"
+        menu:
+          - text: "4.1 Zusammenfassung der Ergebnisse"
+            href: index.qmd#fazit1
+          - text: "4.2 Kritische Einordnung"
+            href: index.qmd#fazit2
+
+      - text: "5. Ausblick"
+        menu:
+          - text: "5.1 Level of Detail (LOD)"
+            href: index.qmd#ausblick1
+          - text: "5.2 Simulation natürlicher Prozesse: Wasser- und Erosionssimulation"
+            href: index.qmd#ausblick2
+          - text: "5.3 Machine Learning und hybride Ansätze"
+            href: index.qmd#ausblick3
+
+      - text: "6. Referenzen"
+        href: index.qmd#referenzen
+
+      - text: "Demos"
+        menu:
+          - text: "Value Noise"
+            href: index.qmd#value-noise
+          - text: "Perlin Noise"
+            href: index.qmd#perlin-noise
+          - text: "FBM Noise"
+            href: index.qmd#fbm-noise
+
+          - text: "Heightmap-Methode"
+            href: index.qmd#heightmap
+          - text: "Voxel-Säulen-Methode"
+            href: index.qmd#voxel
+          - text: "Vertex-Displacement-Methode"
+            href: index.qmd#displacement
+          - text: "Vertex-Displacement mit Day/Night-Shader"
+            href: index.qmd#displacement-shader
+
+    right:
+      - text: "Repo"
+        href: https://gitlab.lrz.de/julianpth/vcde-ip-framework-jp-2026/-/tree/website-v1-gr4?ref_type=heads
+
+  page-footer:
+    left: "Interaktive Webseite mit Quarto"
+    right: "Stand: Draft"
+
+resources:
+  - interactive/shader/**
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-title: "Auf dieser Seite"
+    toc-depth: 3
+    toc-location: right
+    number-sections: true
+    anchor-sections: true
+    css: styles.css
+    code-fold: false
+    smooth-scroll: true
+    grid:
+      body-width: 1000px
+      margin-width: 260px
+      gutter-width: 1.5rem
+    include-after-body:
+      - interactive/value-noise-loader.html
+      - interactive/perlin-noise-loader.html
+      - interactive/fbm-noise-loader.html
+      - interactive/height-curve-demo-loader.html
+      - interactive/terrain-height-sliders-loader.html
+      - interactive\terrain\terrain-heightmap-loader.html
+      - interactive\terrain\terrain-voxel-loader.html
+      - interactive\terrain\terrain-vertex-shader-loader.html
+      - interactive\terrain\terrain-day-night-shader-loader.html

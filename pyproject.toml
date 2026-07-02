@@ -1,0 +1,11 @@
+[project]
+name = "visual-computing-group-projekt-4"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pillow>=11.0.0",
+    "matplotlib>=3.9.0",
+    "python-pptx>=1.0.0",
+]
