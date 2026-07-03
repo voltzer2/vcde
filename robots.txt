@@ -1,1 +1,1 @@
-Sitemap: https://voltzer2.github.io/vcde/sitemap.xml
+Sitemap: https://voltzer2.github.io/vc4-shader-terrain/sitemap.xml
