@@ -123,7 +123,7 @@ function buildHeightmapTerrain(options) {
     const noiseIndex = noiseZ * noiseWidth + noiseX
     const normalizedValue = noiseData.normalizedValues[noiseIndex] ?? 0
 
-    const terrainHeight = sampleTerrainHeight(
+    const terrainHeight = heightFunction(
                             normalizedValue,
                             baseHeight,
                             maximumHeight,

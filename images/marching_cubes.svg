@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="Marching Cubes Isofläche in einem Voxel-Gitter">
+  <rect width="400" height="280" fill="#f8fafc"/>
+  <g stroke="#d0d7de" stroke-width="1">
+    <line x1="100" y1="50" x2="100" y2="230"/>
+    <line x1="160" y1="50" x2="160" y2="230"/>
+    <line x1="220" y1="50" x2="220" y2="230"/>
+    <line x1="280" y1="50" x2="280" y2="230"/>
+    <line x1="340" y1="50" x2="340" y2="230"/>
+    <line x1="100" y1="50" x2="340" y2="50"/>
+    <line x1="100" y1="110" x2="340" y2="110"/>
+    <line x1="100" y1="170" x2="340" y2="170"/>
+    <line x1="100" y1="230" x2="340" y2="230"/>
+  </g>
+  <path d="M 100 170 Q 180 120 260 140 T 340 90" fill="none" stroke="#0969da" stroke-width="3"/>
+  <text x="200" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#24292f">Isofläche bei Dichte-Schwellwert</text>
+  <text x="70" y="75" font-family="sans-serif" font-size="11" fill="#cf222e">Luft</text>
+  <text x="70" y="200" font-family="sans-serif" font-size="11" fill="#2da44e">fest</text>
+</svg>

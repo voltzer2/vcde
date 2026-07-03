@@ -279,6 +279,10 @@ window.Quarto = {
  <span class="dropdown-text">FBM Noise</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./index.html#height-function">
+ <span class="dropdown-text">Höhenfunktion</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./index.html#heightmap">
  <span class="dropdown-text">Heightmap-Methode</span></a>
   </li>  
@@ -315,22 +319,22 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
+    <h2 id="toc-title">Kapitelauswahl</h2>
    
   <ul>
   <li><a href="#einfuehrung" id="toc-einfuehrung" class="nav-link active" data-scroll-target="#einfuehrung"><span class="header-section-number">1</span> Einführung</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#einfuehrung1" id="toc-einfuehrung1" class="nav-link" data-scroll-target="#einfuehrung1"><span class="header-section-number">1.1</span> Was ist prozedurale Generierung?</a></li>
   <li><a href="#einfuehrung2" id="toc-einfuehrung2" class="nav-link" data-scroll-target="#einfuehrung2"><span class="header-section-number">1.2</span> Unterschied zu klassischen Texturen</a></li>
   <li><a href="#einfuehrung3" id="toc-einfuehrung3" class="nav-link" data-scroll-target="#einfuehrung3"><span class="header-section-number">1.3</span> Verwandte Methoden im Vergleich</a></li>
   </ul></li>
   <li><a href="#hintergrund" id="toc-hintergrund" class="nav-link" data-scroll-target="#hintergrund"><span class="header-section-number">2</span> Hintergrund</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#hintergrund1" id="toc-hintergrund1" class="nav-link" data-scroll-target="#hintergrund1"><span class="header-section-number">2.1</span> Vom Seed zum gerenderten Terrain</a></li>
   <li><a href="#hintergrund2" id="toc-hintergrund2" class="nav-link" data-scroll-target="#hintergrund2"><span class="header-section-number">2.2</span> Parallelisierung durch Compute Shader</a></li>
   </ul></li>
   <li><a href="#prozedural" id="toc-prozedural" class="nav-link" data-scroll-target="#prozedural"><span class="header-section-number">3</span> Interaktive prozedurale Terrain-Generierung</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#noise" id="toc-noise" class="nav-link" data-scroll-target="#noise"><span class="header-section-number">3.1</span> Relevante Noise-Verfahren für Terrain-Generierung</a>
   <ul class="collapse">
   <li><a href="#value-noise" id="toc-value-noise" class="nav-link" data-scroll-target="#value-noise"><span class="header-section-number">3.1.1</span> Value Noise</a></li>
@@ -340,9 +344,22 @@ window.Quarto = {
   <li><a href="#terrain" id="toc-terrain" class="nav-link" data-scroll-target="#terrain"><span class="header-section-number">3.2</span> Terrain-Generierung aus Noise Maps</a>
   <ul class="collapse">
   <li><a href="#einleitung" id="toc-einleitung" class="nav-link" data-scroll-target="#einleitung"><span class="header-section-number">3.2.1</span> Einleitung</a></li>
-  <li><a href="#von-der-noise-map-zur-höhe" id="toc-von-der-noise-map-zur-höhe" class="nav-link" data-scroll-target="#von-der-noise-map-zur-höhe"><span class="header-section-number">3.2.2</span> Von der Noise-Map zur Höhe</a></li>
-  <li><a href="#verfahren-auf-der-cpu" id="toc-verfahren-auf-der-cpu" class="nav-link" data-scroll-target="#verfahren-auf-der-cpu"><span class="header-section-number">3.2.3</span> Verfahren auf der CPU</a></li>
-  <li><a href="#verfahren-auf-der-gpu" id="toc-verfahren-auf-der-gpu" class="nav-link" data-scroll-target="#verfahren-auf-der-gpu"><span class="header-section-number">3.2.4</span> Verfahren auf der GPU</a></li>
+  <li><a href="#von-der-noise-map-zur-höhe" id="toc-von-der-noise-map-zur-höhe" class="nav-link" data-scroll-target="#von-der-noise-map-zur-höhe"><span class="header-section-number">3.2.2</span> Von der Noise-Map zur Höhe</a>
+  <ul class="collapse">
+  <li><a href="#height-function" id="toc-height-function" class="nav-link" data-scroll-target="#height-function"><span class="header-section-number">3.2.2.1</span> Die Höhenfunktion</a></li>
+  <li><a href="#sampling-auf-der-cpu" id="toc-sampling-auf-der-cpu" class="nav-link" data-scroll-target="#sampling-auf-der-cpu"><span class="header-section-number">3.2.2.2</span> Sampling auf der CPU</a></li>
+  <li><a href="#sampling-auf-der-gpu" id="toc-sampling-auf-der-gpu" class="nav-link" data-scroll-target="#sampling-auf-der-gpu"><span class="header-section-number">3.2.2.3</span> Sampling auf der GPU</a></li>
+  </ul></li>
+  <li><a href="#verfahren-auf-der-cpu" id="toc-verfahren-auf-der-cpu" class="nav-link" data-scroll-target="#verfahren-auf-der-cpu"><span class="header-section-number">3.2.3</span> Verfahren auf der CPU</a>
+  <ul class="collapse">
+  <li><a href="#heightmap-methode" id="toc-heightmap-methode" class="nav-link" data-scroll-target="#heightmap-methode"><span class="header-section-number">3.2.3.1</span> Heightmap-Methode</a></li>
+  <li><a href="#voxel-density-als-volumenmodell" id="toc-voxel-density-als-volumenmodell" class="nav-link" data-scroll-target="#voxel-density-als-volumenmodell"><span class="header-section-number">3.2.3.2</span> Voxel-Density als Volumenmodell</a></li>
+  <li><a href="#voxel-säulen" id="toc-voxel-säulen" class="nav-link" data-scroll-target="#voxel-säulen"><span class="header-section-number">3.2.3.3</span> Voxel-Säulen</a></li>
+  </ul></li>
+  <li><a href="#verfahren-auf-der-gpu" id="toc-verfahren-auf-der-gpu" class="nav-link" data-scroll-target="#verfahren-auf-der-gpu"><span class="header-section-number">3.2.4</span> Verfahren auf der GPU</a>
+  <ul class="collapse">
+  <li><a href="#vertex-displacement-mapping" id="toc-vertex-displacement-mapping" class="nav-link" data-scroll-target="#vertex-displacement-mapping"><span class="header-section-number">3.2.4.1</span> Vertex-Displacement-Mapping</a></li>
+  </ul></li>
   <li><a href="#zusammenfassung-der-verfahren" id="toc-zusammenfassung-der-verfahren" class="nav-link" data-scroll-target="#zusammenfassung-der-verfahren"><span class="header-section-number">3.2.5</span> Zusammenfassung der Verfahren</a></li>
   </ul></li>
   <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture"><span class="header-section-number">3.3</span> Terrain Texturierung mit Texture Maps und Texture Algorithmen</a>
@@ -365,12 +382,12 @@ window.Quarto = {
   </ul></li>
   </ul></li>
   <li><a href="#fazit" id="toc-fazit" class="nav-link" data-scroll-target="#fazit"><span class="header-section-number">4</span> Fazit</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#fazit1" id="toc-fazit1" class="nav-link" data-scroll-target="#fazit1"><span class="header-section-number">4.1</span> Zusammenfassung der Ergebnisse</a></li>
   <li><a href="#fazit2" id="toc-fazit2" class="nav-link" data-scroll-target="#fazit2"><span class="header-section-number">4.2</span> Kritische Einordnung</a></li>
   </ul></li>
   <li><a href="#ausblick" id="toc-ausblick" class="nav-link" data-scroll-target="#ausblick"><span class="header-section-number">5</span> Ausblick</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#ausblick1" id="toc-ausblick1" class="nav-link" data-scroll-target="#ausblick1"><span class="header-section-number">5.1</span> Level of Detail (LOD)</a></li>
   <li><a href="#ausblick2" id="toc-ausblick2" class="nav-link" data-scroll-target="#ausblick2"><span class="header-section-number">5.2</span> Simulation natürlicher Prozesse: Wasser- und Erosionssimulation</a></li>
   <li><a href="#ausblick3" id="toc-ausblick3" class="nav-link" data-scroll-target="#ausblick3"><span class="header-section-number">5.3</span> Machine Learning und hybride Ansätze</a>
@@ -1078,8 +1095,8 @@ Gib Seed, Frequenz, Octaves, Lacunarity und Gain ein, um eine reproduzierbare fB
 <li><strong>Effizienz:</strong> Die Berechnung sollte effizient ausführbar sein, um <strong>lange Generierungszeiten</strong> zu vermeiden.</li>
 </ul>
 <p>Für die nachfolgenden Demonstrationen wird eine <strong>gemeinsame Höhenfunktion</strong> verwendet. Sie bildet <strong>normalisierte Noise-Werte</strong> auf <strong>Weltkoordinaten</strong> ab und stellt mehrere Parameter zur <strong>Steuerung</strong> der Terrain-Form bereit. Im Folgenden wird ihre konkrete Umsetzung Schritt für Schritt beschrieben.</p>
-<section id="die-höhenfunktion" class="level4" data-number="3.2.2.1">
-<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="die-höhenfunktion"><span class="header-section-number">3.2.2.1</span> Die Höhenfunktion</h4>
+<section id="height-function" class="level4" data-number="3.2.2.1">
+<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="height-function"><span class="header-section-number">3.2.2.1</span> Die Höhenfunktion</h4>
 <p>Ausgehend von einem normalisierten Noise-Wert <span class="math inline">\((v)\)</span> wird die Höhenfunktion als <strong>sigmoidale S-Kurve</strong> aufgebaut und bildet den Wert direkt auf eine <strong>Weltkoordinate</strong> <span class="math inline">\(H(v)\)</span> ab. Die vollständige Funktion lautet:</p>
 <p><span class="math display">\[
 H(v) = H_{\mathrm{base}} + \left(H_{\mathrm{max}} - H_{\mathrm{base}}\right) \cdot \frac{v^{k}} {v^{k} + \left( \frac{1-H_{\mathrm{level}}}{H_{\mathrm{level}}} \right)(1-v)^{k}}.
@@ -1749,10 +1766,10 @@ Code-Erklärung: Normalenberechnung für die Beleuchtung
 <li>Daraus lokale Steigungen bestimmen</li>
 <li>Einen Normalenvektor für die Beleuchtung berechnen</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode glsl code-with-copy"><code class="sourceCode glsl"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hL <span class="op">=</span> <span class="fu">sampleTerrainHeight</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(-</span>texelSize<span class="op">,</span> <span class="fl">0.0</span><span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hR <span class="op">=</span> <span class="fu">sampleTerrainHeight</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(</span>texelSize<span class="op">,</span> <span class="fl">0.0</span><span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hD <span class="op">=</span> <span class="fu">sampleTerrainHeight</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(</span><span class="fl">0.0</span><span class="op">,</span> <span class="op">-</span>texelSize<span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hU <span class="op">=</span> <span class="fu">sampleTerrainHeight</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(</span><span class="fl">0.0</span><span class="op">,</span> texelSize<span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode glsl code-with-copy"><code class="sourceCode glsl"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hL <span class="op">=</span> <span class="fu">heightFunction</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(-</span>texelSize<span class="op">,</span> <span class="fl">0.0</span><span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hR <span class="op">=</span> <span class="fu">heightFunction</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(</span> texelSize<span class="op">,</span> <span class="fl">0.0</span><span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hD <span class="op">=</span> <span class="fu">heightFunction</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(</span><span class="fl">0.0</span><span class="op">,</span> <span class="op">-</span>texelSize<span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> hU <span class="op">=</span> <span class="fu">heightFunction</span><span class="op">(</span><span class="dt">texture2D</span><span class="op">(</span>heightMap<span class="op">,</span> fixedUV <span class="op">+</span> <span class="dt">vec2</span><span class="op">(</span><span class="fl">0.0</span><span class="op">,</span>  texelSize<span class="op">)).</span><span class="fu">r</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Für die Berechnung der <strong>Oberflächennormalen</strong> werden <strong>vier</strong> <em>benachbarte</em> Heightmap-Werte im <strong>Vertex-Shader</strong> gesampelt. Aus den Höhenunterschieden können die <em>lokalen</em> <strong>Steigungen</strong> der Terrainoberfläche bestimmt werden.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode glsl code-with-copy"><code class="sourceCode glsl"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">vec3</span> normalObj <span class="op">=</span> <span class="bu">normalize</span><span class="op">(</span><span class="dt">vec3</span><span class="op">(</span>hL <span class="op">-</span> hR<span class="op">,</span> <span class="fl">2.0</span> <span class="op">*</span> worldStep<span class="op">,</span> hD <span class="op">-</span> hU<span class="op">));</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Aus den <strong>Steigungen</strong> wird anschließend ein <strong>Normalenvektor</strong> berechnet. Dieser beschreibt die <strong>Orientierung</strong> der Oberfläche und wird an den <strong>Fragment-Shader</strong> übergeben.</p>
@@ -2473,7 +2490,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/voltzer2\.github\.io\/vcde\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -2804,13 +2821,13 @@ document.addEventListener("DOMContentLoaded", function () {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Interaktive Webseite mit Quarto</p>
+<p>Prozedurale Grafik-Generierung</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Stand: Draft</p>
+<p>Version: 1.0.0</p>
 </div>
   </div>
 </footer>

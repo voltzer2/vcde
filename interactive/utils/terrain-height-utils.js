@@ -8,7 +8,7 @@ function clampNormalizedValue(value) {
   return Math.max(0, Math.min(1, value))
 }
 
-function sampleTerrainHeightSigmoidFraction(normalizedValue, heightCurveExponent, heightLevel) {
+function heightFunctionSigmoidFraction(normalizedValue, heightCurveExponent, heightLevel) {
   const v = clampNormalizedValue(normalizedValue)
   const k = Math.max(HEIGHT_LEVEL_EPSILON, heightCurveExponent)
   const level = clampHeightLevel(heightLevel)
@@ -33,7 +33,7 @@ function sampleTerrainHeightSigmoidFraction(normalizedValue, heightCurveExponent
   return vk / denominator
 }
 
-function sampleTerrainHeight(
+function heightFunction(
   normalizedValue,
   baseHeight,
   maximumHeight,
@@ -42,7 +42,7 @@ function sampleTerrainHeight(
 ) {
   const safeBase = Math.max(0, baseHeight)
   const safeMax = Math.max(safeBase + HEIGHT_LEVEL_EPSILON, maximumHeight)
-  const fraction = sampleTerrainHeightSigmoidFraction(
+  const fraction = heightFunctionSigmoidFraction(
     normalizedValue,
     heightCurveExponent,
     heightLevel

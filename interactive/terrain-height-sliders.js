@@ -1,3 +1,4 @@
+// Format slider value based on step size
 function formatTerrainSliderValue(input, value) {
   const step = Number(input.step) || 1
   if (step < 1) {
@@ -31,6 +32,7 @@ function updateSliderValueDisplay(input) {
   }
 }
 
+// Keep maximum height above base height when sliders change
 function enforceTerrainHeightConstraints(baseInput, maxInput, changedId) {
   if (!baseInput || !maxInput) {
     return
@@ -51,6 +53,7 @@ function enforceTerrainHeightConstraints(baseInput, maxInput, changedId) {
   }
 }
 
+// Bind all height sliders for one terrain demo section
 function bindTerrainHeightSliderGroup(prefix) {
   const baseInput = document.getElementById(`${prefix}-base-height-input`)
   const maxInput = document.getElementById(`${prefix}-maximum-height-input`)
@@ -77,10 +80,7 @@ function bindTerrainHeightSliderGroup(prefix) {
 
 function bindWaterLevelSlider(prefix) {
   const waterInput = document.getElementById(`${prefix}-water-level-input`)
-  if (!waterInput) {
-    return
-  }
-
+  if (!waterInput) {return}
   const updateDisplay = () => updateSliderValueDisplay(waterInput)
 
   waterInput.addEventListener("input", updateDisplay)

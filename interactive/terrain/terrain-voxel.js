@@ -145,7 +145,7 @@ function buildVoxelTerrain(options) {
       const noiseIndex = noiseZ * noiseWidth + noiseX
       const normalizedValue = noiseData.normalizedValues[noiseIndex] ?? 0
       const terrainHeight = Math.floor(
-                              sampleTerrainHeight(
+                              heightFunction(
                                 normalizedValue,
                                 baseHeight,
                                 maximumHeight,

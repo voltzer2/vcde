@@ -21,7 +21,8 @@ export function getVertexDisplacementMapping() {
             varying vec3 vNormalW;
             varying vec2 vUv;
 
-            float sampleTerrainHeight(float normalizedValue) {
+            // height-function on the GPU
+            float heightFunction(float normalizedValue) {
                 float v = clamp(normalizedValue, 0.0, 1.0);
                 float k = max(heightCurveExponent, 0.0001);
                 float level = clamp(heightLevel, 0.0001, 0.9999);
@@ -46,21 +47,21 @@ export function getVertexDisplacementMapping() {
             }
 
             void main() {
-                // FIX: UV Y-Achse invertieren (wichtig für Babylon Ground)
+                // FIX: UV Y-Achse invertieren (important für Babylon Ground)
                 vec2 fixedUV = vec2(uv.x, 1.0 - uv.y);
 
                 // Displacement
                 float n = texture2D(heightMap, fixedUV).r;
-                float height = sampleTerrainHeight(n);
+                float height = heightFunction(n);
 
                 vec3 displaced = position;
                 displaced.y += height;
 
-                // Nachbar-Sampling mit korrigierten UVs
-                float hL = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(-texelSize, 0.0)).r);
-                float hR = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2( texelSize, 0.0)).r);
-                float hD = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(0.0, -texelSize)).r);
-                float hU = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(0.0,  texelSize)).r);
+                // Neighbor Sampling with Corrected UVs
+                float hL = heightFunction(texture2D(heightMap, fixedUV + vec2(-texelSize, 0.0)).r);
+                float hR = heightFunction(texture2D(heightMap, fixedUV + vec2( texelSize, 0.0)).r);
+                float hD = heightFunction(texture2D(heightMap, fixedUV + vec2(0.0, -texelSize)).r);
+                float hU = heightFunction(texture2D(heightMap, fixedUV + vec2(0.0,  texelSize)).r);
 
                 vec3 normalObj = normalize(vec3(
                     hL - hR,

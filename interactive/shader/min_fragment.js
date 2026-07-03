@@ -7,7 +7,7 @@ export function getMinFragment() {
         void main() {
             vec3 color = vec3(0.6, 0.6, 0.6);
 
-            // Diffuse Beleuchtung mit Ambient-Anteil
+            // Diffuse lighting with an ambient component
             vec3 nrm = normalize(vNormalW);
             float diffuse = max(dot(nrm, normalize(-lightDirection)), 0.0);
             float lighting = 0.35 + diffuse * 0.85;
