@@ -792,7 +792,7 @@ Grundsätzlich existiert darauf **keine allgemeingültige Antwort**. Je nach Anw
 
 Für die nachfolgenden Demonstrationen wird eine **gemeinsame Höhenfunktion** verwendet. Sie bildet **normalisierte Noise-Werte** auf **Weltkoordinaten** ab und stellt mehrere Parameter zur **Steuerung** der Terrain-Form bereit. Im Folgenden wird ihre konkrete Umsetzung Schritt für Schritt beschrieben.
 
-#### Die Höhenfunktion
+#### Die Höhenfunktion {#height-function}
 
 Ausgehend von einem normalisierten Noise-Wert $(v)$ wird die Höhenfunktion als **sigmoidale S-Kurve** aufgebaut und bildet den Wert direkt auf eine **Weltkoordinate** $H(v)$ ab. Die vollständige Funktion lautet:
 
@@ -1543,10 +1543,10 @@ Da in **Babylon.js** bei der Verwendung eines `ShaderMaterials` sowohl ein **Ver
 3. Einen Normalenvektor für die Beleuchtung berechnen
 
 ```glsl
-float hL = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(-texelSize, 0.0)).r);
-float hR = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(texelSize, 0.0)).r);
-float hD = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(0.0, -texelSize)).r);
-float hU = sampleTerrainHeight(texture2D(heightMap, fixedUV + vec2(0.0, texelSize)).r);
+float hL = heightFunction(texture2D(heightMap, fixedUV + vec2(-texelSize, 0.0)).r);
+float hR = heightFunction(texture2D(heightMap, fixedUV + vec2( texelSize, 0.0)).r);
+float hD = heightFunction(texture2D(heightMap, fixedUV + vec2(0.0, -texelSize)).r);
+float hU = heightFunction(texture2D(heightMap, fixedUV + vec2(0.0,  texelSize)).r);
 ```
 
 Für die Berechnung der **Oberflächennormalen** werden **vier** _benachbarte_ Heightmap-Werte im **Vertex-Shader** gesampelt. Aus den Höhenunterschieden können die _lokalen_ **Steigungen** der Terrainoberfläche bestimmt werden.

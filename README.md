@@ -39,7 +39,7 @@
     - `generate_assets_terrain.py`
     - `generate_assets_valuenoise.py`
     - `generate_assets.py`
-
+- `pyproject.toml` zu Initialisierung einer UV-Environment
 
 ## Voraussetzungen zum Bauen und Starten der Website
 
@@ -50,7 +50,7 @@
 
 ### Internetverbindung (beim Anzeigen der Seite)
 
-Eine aktive Internetverbindung ist **für die interaktiven Demos und Formeln erforderlich**, da externe Ressourcen per CDN geladen werden:
+Eine aktive Internetverbindung ist **für die interaktiven Demos und Formeln erforderlich**, da externe Ressourcen per _Content Delivery Network_ (CDN) geladen werden:
 
 - **Babylon.js** (`cdn.babylonjs.com`) — Interaktiven Elementen
 - **MathJax** (`cdn.jsdelivr.net`) — Darstellung der mathematischen Formeln

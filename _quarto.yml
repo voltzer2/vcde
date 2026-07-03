@@ -71,12 +71,15 @@ website:
           - text: "FBM Noise"
             href: index.qmd#fbm-noise
 
+          - text: "Höhenfunktion"
+            href: index.qmd#height-function
           - text: "Heightmap-Methode"
             href: index.qmd#heightmap
           - text: "Voxel-Säulen-Methode"
             href: index.qmd#voxel
           - text: "Vertex-Displacement-Methode"
             href: index.qmd#displacement
+
           - text: "Vertex-Displacement mit Day/Night-Shader"
             href: index.qmd#displacement-shader
 
@@ -85,8 +88,8 @@ website:
         href: https://gitlab.lrz.de/julianpth/vcde-ip-framework-jp-2026/-/tree/website-v1-gr4?ref_type=heads
 
   page-footer:
-    left: "Interaktive Webseite mit Quarto"
-    right: "Stand: Draft"
+    left: "Prozedurale Grafik-Generierung"
+    right: "Version: 1.0.0"
 
 resources:
   - interactive/shader/**
@@ -95,8 +98,8 @@ format:
   html:
     theme: cosmo
     toc: true
-    toc-title: "Auf dieser Seite"
-    toc-depth: 3
+    toc-title: "Kapitelauswahl"
+    toc-depth: 4
     toc-location: right
     number-sections: true
     anchor-sections: true
@@ -113,7 +116,7 @@ format:
       - interactive/fbm-noise-loader.html
       - interactive/height-curve-demo-loader.html
       - interactive/terrain-height-sliders-loader.html
-      - interactive\terrain\terrain-heightmap-loader.html
-      - interactive\terrain\terrain-voxel-loader.html
-      - interactive\terrain\terrain-vertex-shader-loader.html
-      - interactive\terrain\terrain-day-night-shader-loader.html
+      - interactive/terrain/terrain-heightmap-loader.html
+      - interactive/terrain/terrain-voxel-loader.html
+      - interactive/terrain/terrain-vertex-shader-loader.html
+      - interactive/terrain/terrain-day-night-shader-loader.html
